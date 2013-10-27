@@ -136,7 +136,7 @@ a =bayes.logreg(m=m, y=y, x=x, beta.0=beta.0, Sigma.0 = Sigma.0, niter=15000, bu
                 
 probs = (1:99)/100
 percentile_table = cbind(quantile(a[,1], probs), quantile(a[,2],probs))
-write.csv(percentile_table,paste0("results/blr_res_",jobid,".csv"),row.names=F)
-                
+write.table(percentile_table,file = paste0("results/blr_res_",jobid,".csv"),sep=",",col.names=F, row.names=F)
+              
 q("no")                
                 
