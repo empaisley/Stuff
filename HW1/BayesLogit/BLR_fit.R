@@ -26,7 +26,8 @@ if (length(args)==0){
   set.seed(762*jobid + 1330931)
 }
 
-data_path = "/home/paisley/Stuff/HW1/BayesLogit/data/ "
+#data_path = "/home/paisley/Stuff/HW1/BayesLogit/data/ "
+data_path = "data/ "
 data = read.csv(paste0(data_path,"blr_data_",jobid, ".csv"))
 pars = read.csv(paste0(data_path,"blr_pars_",jobid, ".csv"))
                 
