@@ -31,7 +31,7 @@ data_path = "data/"
 data = read.csv(paste0(data_path,"blr_data_",jobid, ".csv"))
 pars = read.csv(paste0(data_path,"blr_pars_",jobid, ".csv"))
                 
-output_path = "/home/paisley/Stuff/HW1/BayesLogit/results"  
+#output_path = "/home/paisley/Stuff/HW1/BayesLogit/results"  
                 
                 
                 
@@ -136,7 +136,7 @@ a =bayes.logreg(m=m, y=y, x=x, beta.0=beta.0, Sigma.0 = Sigma.0, niter=15000, bu
                 
 probs = (1:99)/100
 percentile_table = cbind(quantile(a[,1], probs), quantile(a[,2],probs))
-write.csv(percentile_table,paste0(out_path,"Bayes_Logit_Percentiles_",jobib,".csv"),row.names=F, col.names=F)
+write.csv(percentile_table,paste0("data/Bayes_Logit_Percentiles_",jobib,".csv"),row.names=F, col.names=F)
                 
 q("no")                
                 
