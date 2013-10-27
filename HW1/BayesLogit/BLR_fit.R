@@ -65,7 +65,7 @@ beta.0=c(0,0)
   
   n.accept.vec = matrix(0,niter+burnin,1) #int. acceptance vector
   v_tune = 1.5 # set tuning parameter for the variance of the proposal dist.
-  beta_curr = beta.0 #
+  beta_curr = beta.0 # set first beta_current
   Sigma = Sigma.0 # set first sigma to be identity (prev. defined )
   beta_samp = matrix(NA, niter+burnin, 2)#int. matrix of beta values 
   
@@ -132,7 +132,7 @@ beta.0=c(0,0)
   } # end function bayes.logreg
 
 #run bayes.logreg, specifying data (m,y,x), in
-a =bayes.logreg(m=m, y=y, x=x, beta.0=beta, Sigma.0 = Sigma.0, niter=10000, burnin=5000,v=1,retune=100)
+a =bayes.logreg(m=m, y=y, x=x, beta.0=beta.0, Sigma.0 = Sigma.0, niter=15000, burnin=5000,v=1,retune=100,verbose=FALSE)
                 
 probs = (1:99)/100
 percentile_table = cbind(quantile(a[,1], probs), quantile(a[,2],probs))
