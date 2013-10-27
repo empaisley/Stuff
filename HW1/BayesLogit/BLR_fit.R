@@ -24,7 +24,7 @@ if (length(args)==0){
   jobid <- sim_start + as.numeric(args[1])
   # Set a different random seed for every job number!!!
   set.seed(762*jobid + 1330931)
-  
+}
 
 data_path = "/home/paisley/Stuff/HW1/BayesLogit/data"
 data = read.csv(paste0(data_path,"blr_data_",jobid, ".csv"))
