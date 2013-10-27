@@ -27,8 +27,8 @@ if (length(args)==0){
   
 
 data_path = "/home/paisley/Stuff/HW1/BayesLogit/data"
-data = read.csv(paste0(data_path,"blr_data_",jobid, ".csv")
-pars = read.csv(paste0(data_path,"blr_pars_",jobid, ".csv")
+data = read.csv(paste0(data_path,"blr_data_",jobid, ".csv"))
+pars = read.csv(paste0(data_path,"blr_pars_",jobid, ".csv"))
                 
 output_path = "/home/paisley/Stuff/HW1/BayesLogit/results"  
                 
