@@ -1,5 +1,5 @@
 
-
+setwd("/home/paisley/Stuff/HW1/BayesLogit/results/")
 files = list.files()
 
 for(i in 1:length(files)){
