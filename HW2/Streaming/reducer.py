@@ -2,7 +2,7 @@ __author__ = 'EliotP'
 
 import csv
 
-#ofile = csv.writer(open("TESTING.csv","wb"))
+ofile = open("TESTING.csv","wb")
 writer = csv.writer(ofile, delimeter='\t')
 
 current_word = None
