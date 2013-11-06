@@ -2,7 +2,7 @@ __author__ = 'EliotP'
 
 import sys
 
-file = open('out.txt', 'w')
+#file = open('out.txt', 'w')
 for line in sys.stdin:
 
     # remove leading and trailing whitespace
@@ -22,8 +22,8 @@ for line in sys.stdin:
     y_hi = round(y,1)+0.1
 
     #print((x_lo,x_hi,y_lo,y_hi),1)
-    #print '%s\t%s' % ((x_lo,x_hi,y_lo,y_hi),1)
-    file.write(x)
+    print '%s\t%s' % ((x_lo,x_hi,y_lo,y_hi),1)
+    #file.write(x)
 
 file.close()
 
