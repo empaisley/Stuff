@@ -1,4 +1,4 @@
-#__author__ = 'EliotP'
+#!/usr/bin/env python
 
 import sys
 
@@ -6,7 +6,7 @@ import sys
 
 for line in sys.stdin:
     # remove leading and trailing whitespace
-    line = line.strip()
+    #line = line.strip()
     # split x and y values apart
     line = line.split()
 
@@ -17,10 +17,10 @@ for line in sys.stdin:
 
     # create upper and lower bounds for each bin, separated by 0.1
     x_lo = round(x,1)
-    x_hi = round(x,1)+0.1
+    x_hi = round(round(x,1)+0.1)
     y_lo = round(y,1)
-    y_hi = round(y,1)+0.1
+    y_hi = round(round(y,1)+0.1)
 
     #print((x_lo,x_hi,y_lo,y_hi),1)
-    print '%s\t%s' % ((x_lo,x_hi,y_lo,y_hi),1)
+    print '%s\t%s\t%s\t%s\t%s' % (x_lo,x_hi,y_lo,y_hi,1)
 
