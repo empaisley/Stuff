@@ -1,10 +1,10 @@
-__author__ = 'EliotP'
+#__author__ = 'EliotP'
 
 import sys
 
-#file = open('out.txt', 'w')
-for line in sys.stdin:
+#f = open('mini_out.txt', 'r')
 
+for line in sys.stdin:
     # remove leading and trailing whitespace
     line = line.strip()
     # split x and y values apart
@@ -23,21 +23,4 @@ for line in sys.stdin:
 
     #print((x_lo,x_hi,y_lo,y_hi),1)
     print '%s\t%s' % ((x_lo,x_hi,y_lo,y_hi),1)
-    #file.write(x)
 
-file.close()
-
-#import sys
-#
-## input comes from STDIN (standard input)
-#
-#for line in sys.stdin:
-#    # remove leading and trailing whitespace
-#    line = line.strip()
-#    # split the line into words
-#    words = line.split()
-#    #increase counters
-#    for word in words:
-#        #write results to STDOUT (standard output); what we output here will
-#        # be the input for the Reduce step, i.e. the input for reducer .py
-#        print '%s\t%s' % (word,1)
