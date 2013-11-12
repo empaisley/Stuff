@@ -1,15 +1,28 @@
+import math as m
 
-line = "3.28854889186141 0.148978077031863, aaa, bbb, ccc"
+a = 3.33
 
-line = line.strip()
-line = line.split()
+if a-round(a,1) < 0.0:
+    x_hi = round(a,1)
+    x_lo = round(round(a,1) - 0.1,1)
+else:
+    x_lo = round(a,1)
+    x_hi = round(round(a,1) + 0.1,1)
 
-val = line[0:3]
-count = line[4]
-print(val, count)
-    # x and y were split as a list of two elements.
-    # need to convert to floats and designate which element is x and which is y.
-print(line)
+
+#print(a-round(a,1))
+print(x_lo,x_hi)
+
+
+#line = line.strip()
+#line = line.split()
+#
+#val = line[0:3]
+#count = line[4]
+#print(val, count)
+#    # x and y were split as a list of two elements.
+#    # need to convert to floats and designate which element is x and which is y.
+#print(line)
 #x = map(float,line)[0]
 #y = map(float,line)[1]
 #print(x,y)
