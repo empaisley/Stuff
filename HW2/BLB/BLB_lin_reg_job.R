@@ -26,8 +26,7 @@ args = commandArgs(TRUE)
 cat("Command-line arguments:\n")
 print(args)
 
-### sim_start <- 1000
-#####################
+sim_start <- 1000
 
 if (length(args)==0){
   sim_num <- sim_start + 1
