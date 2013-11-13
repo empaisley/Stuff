@@ -1,9 +1,17 @@
+setwd("~/GitHub/Stuff/HW2/Streaming/")
+
+############################
+### Q2 --- MAPREDUCE RESULTS
+############################
+
+data = read.table('mapper_results.txt', header=FALSE,sep=";")
+
+library(stringr)
+b = do.call(rbind, str_split(data[,4],'\t'))
+
+res = cbind(data[,1:3],as.numeric(b[,1]),as.numeric(b[,2]) )
 
 # Make 2D Histogram:
-
-#res <- read.table("mini_result.txt",sep=",",header=F)
-res <- read.table("full_results.txt",sep=",",header=F)
-head(res)
 
 x <- apply(res[,1:2],1,mean)
 y <- apply(res[,3:4],1,mean)
@@ -26,3 +34,18 @@ for (i in 1:nrow(res)){
   }
 }
 dev.off()
+
+#######################
+### Q3 --- HIVE RESULTS
+#######################
+
+hive_data = read.table('hive_results.txt', header=FALSE,sep="\001")
+
+x11()
+pdf("hive_plot.pdf") 
+plot(hive_data[,2], hive_data[,3], main="Result from HIVE", 
+     xlab = "Within-Group Means", 
+     ylab = "Within-Group Variances",
+     col=rgb(100,0,0,50,maxColorValue=255), pch=16)
+dev.off()
+

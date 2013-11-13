@@ -1,6 +1,10 @@
-### STA 250 - HW 2 - Problem 1. Bag of Little Bootstraps
+### STA 250 - HW 2
 ### Eliot Paisley - 11/13/13
-########################################################
+############################
+
+
+### Problem 1: Bag of Little Bootstraps
+######################################
 
 ### preliminaries
 #################
@@ -11,9 +15,6 @@ library(bigmemory.sri)
 library(bigmemory)
 library(biganalytics)
 
-# set paths
-#datapath = "/home/pdbaines/data/"
-#outpath = "output/"
 
 # set number of subsamples (s), and bootstrap samples (r)
 s = 5           
@@ -54,10 +55,6 @@ if (length(args)==0){
   set.seed(sim_seed)
 }
 
-# Some checks that go into the .out file
-cat(paste("\nAnalyzing dataset number ",sim_num,"...\n\n",sep=""))
-cat(paste("\nRunning s_index ",s_index," r_index ",r_index," seed ",sim_seed," job.num ",job.num,"...\n\n",sep=""))
-
 
 ### simulation
 ##############
@@ -89,10 +86,6 @@ set.seed(sim_seed)
 # bootstrap dataset
 data.weights = rmultinom(1, size = n, rep(1/b, b))
 
-# Check the weights
-#outfile = paste0("dump/","BLB_bootstrap_weights_",sprintf("%02d",s_index),"_",sprintf("%02d",r_index),".txt")
-#write.table(x=data.weights,file=outfile, sep=",", col.names=TRUE, row.names=FALSE)
-
 # fit linear regression and extract coefficients
 model = lm(Y.sub.sample ~ 0 + X.sub.sample, weights=data.weights)
 beta.hat = model$coefficients
@@ -103,6 +96,13 @@ outfile = paste0("output/","coef_",sprintf("%02d",s_index),"_",sprintf("%02d",r_
 # save estimates to file
 write.table(x=beta.hat,file=outfile, sep=",", col.names=TRUE, row.names=FALSE)
 
-cat("done. :)\n")
-
 q("no")
+
+
+### index plot
+##############
+blb_post_data = read.table("~/GitHub/Stuff/HW2/BLB/final/blb_lin_reg_data_s5_r50_SE.txt", header=T, quote="\"")
+
+pdf("index_plot.pdf")
+plot(as.matrix(blb_post_data),ylab = expression(paste("SE(", hat(beta),")")),main = "Index Plot of the SE's ")
+dev.off()

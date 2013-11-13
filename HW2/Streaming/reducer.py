@@ -8,9 +8,10 @@ word = None
 
 for line in sys.stdin:
     line = line.strip()
-    line = line.split()
-    word = line[0:4]
-    count = line[4]
+    # split from the right, taking the right-most element to be the count (value)
+    line = line.rsplit(';',1)
+    word = line[0]
+    count = line[1]
     try:
         count = int(count)
     except ValueError:
